@@ -8,5 +8,5 @@ wget https://lab.ndl.go.jp/dataset/ndlocr/ndl_layout/epoch_140_all_eql_bt.pth -P
 wget https://lab.ndl.go.jp/dataset/ndlocr/separate_pages_ssd/weights.hdf5 -P ./src/separate_pages_ssd/ssd_tools
 
 cp ${DOCKERIGNORE} .dockerignore
-docker build -t ${TAG} -f ${DOCKERFILE} .
+docker build --rm --pull $CACHE_FLAG -t ${TAG} -f ${DOCKERFILE} $BUILD_ARGS . 
 rm .dockerignore
